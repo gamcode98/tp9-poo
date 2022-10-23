@@ -17,7 +17,22 @@ public class CuentaDTO {
 	
 	private Double limiteExtraccion;
 	
-	private ClienteDTO cliente;
+	private ClienteDTO cliente;	
+
+	public CuentaDTO(Integer numero, LocalDate fechaIngreso, Double saldo, Boolean estado, Double limiteExtraccion,
+			ClienteDTO cliente) {
+		super();
+		this.numero = numero;
+		this.fechaIngreso = fechaIngreso;
+		this.saldo = saldo;
+		this.estado = estado;
+		this.limiteExtraccion = limiteExtraccion;
+		this.cliente = cliente;
+	}
+	
+	public CuentaDTO() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Integer getNumero() {
 		return numero;

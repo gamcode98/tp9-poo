@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.poo.TPN9.service.imp;
 
+import javax.transaction.Transactional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +34,7 @@ public class ClienteServiceImp implements ClienteService {
 	}
 
 	@Override
+	@Transactional
 	public ClienteDTO buscarCliente(String dni) throws ModelException {
 		cliente = clienteRepository.findByDni(dni);
 		
@@ -48,7 +51,8 @@ public class ClienteServiceImp implements ClienteService {
 		return clienteDTO;
 		
 	}
-
+	
+	@Transactional
 	@Override
 	public void eliminarCliente(ClienteDTO clienteDTO) {
 		clienteDTO = buscarCliente(clienteDTO.getDni());
